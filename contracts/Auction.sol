@@ -89,7 +89,7 @@ contract Auction {
         // ** Start code here. 2 lines approximately. **/
         require(
             tokenDetails[msg.sender].remainingTokens > _count ||
-                tokenDetails[msg.sender].remainingTokens == 0,
+                tokenDetails[msg.sender].remainingTokens < 0,
             "Not enough token"
         );
         require(_itemId > 2, "Not exist");

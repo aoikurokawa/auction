@@ -33,14 +33,15 @@ contract('AuctionContract', (accounts) => {
     pass itemId=0, count=6 as arguments
     HINT:     To make a function call from account 1 use {from: accounts[1]} as an extra argument
     ***********/
-    return auctionInstance.bid({ from: accounts[1] }, 0, 6)
+    return auctionInstance.bid(0, 6, { from: accounts[1] })
       .then((result) => {
         /*
         We are testing for a negative condition and hence this particular block will not have executed if our test case was correct. If this part is executed then we throw an error and catch the error to assert false
         */
         throw ("Failed to check remaining tokens less than count");
       }).catch((e) => {
-        var a = e.toString();
+        let a = e.toString();
+        console.log(a);
         if (e === "Failed to check remaining tokens less than count") {
           /**********
           TASK 2: This is the error which we had thrown. Should you assert true or false?
@@ -48,15 +49,13 @@ contract('AuctionContract', (accounts) => {
                   Use assert(true) to assert true
           ***********/
           /*<CODE HERE>*/
-          assert(false) = false;
-          assert(true) = true;
+          assert(true, "Failed to check remaining tokens less than count");
         } else {
           /**********
           TASK 3: assert the opposite here
           ***********/
           /*<CODE HERE>*/
-          assert(false) = true;
-          assert(true) = false;
+          assert(false, "Not");
         }
       })
   });
@@ -66,7 +65,7 @@ contract('AuctionContract', (accounts) => {
     /**********
     TASK 4: Call revealWinners from account 1
     ***********/
-    return auctionInstance.revealOwner({ from: accounts[0] })
+    return auctionInstance.revealWinners({ from: accounts[0] })
       .then((instance) => {
         /*
         We are testing for a negative condition and hence this particular block will not have executed if our test case was correct. If this part is executed then we throw an error and catch the error to assert false
@@ -80,15 +79,13 @@ contract('AuctionContract', (accounts) => {
                   Use assert(true) to assert true
           ***********/
           /*<CODE HERE>*/
-          assert(false) = false;
-          assert(true) = true;
+          assert(true, "Failed to check owner in reveal winners")
         } else {
           /**********
           TASK 6: assert the opposite here
           ***********/
           /*<CODE HERE>*/
-          assert(false) = true;
-          assert(true) = false;
+          assert(false, "Not");
         }
       })
   })
@@ -114,19 +111,19 @@ contract('AuctionContract', (accounts) => {
         TASK 10: Call bid method from accounts[2] of Auction.sol using auctionInstance and
         pass itemId=0, count=5 as arguments
         ***********/
-        return auctionInstance.bid({ from: accounts[2] }, 0, 5)
+        return auctionInstance.bid(0, 5, { from: accounts[2] })
       }).then(function () {
         /**********
         TASK 11: Call bid method from accounts[3] of Auction.sol using auctionInstance and
         pass itemId=1, count=5 as arguments
         ***********/
-        return auctionInstance.bid({ from: accounts[3] }, 1, 5)
+        return auctionInstance.bid(1, 5, { from: accounts[3] })
       }).then(function () {
         /**********
         TASK 12: Call bid method from accounts[4] of Auction.sol using auctionInstance and
         pass itemId=2, count=5 as arguments
         ***********/
-        return auctionInstance.bid({ from: accounts[4] }, 2, 5)
+        return auctionInstance.bid(2, 5, { from: accounts[4] })
       }).then(function () {
         /**********
         TASK 13: Call revealWinners function from accounts[0]
@@ -136,7 +133,7 @@ contract('AuctionContract', (accounts) => {
         /**********
         TASK 14: call winners function from accounts[0] to get the winner of item id 0
         ***********/
-        return auctionInstance.winners({ from: accounts[0] }, 0)
+        return auctionInstance.winners(0, { from: accounts[0] })
       }).then(function (result) {
         /**********
         TASK 15:  assert to see if the winner address is not the default address
@@ -149,7 +146,7 @@ contract('AuctionContract', (accounts) => {
         /**********
         TASK 16: call winners function from accounts[0] to get the winner of item id 1
         ***********/
-        return auctionInstance.winners({ from: accounts[0] }, 1)
+        return auctionInstance.winners(1, { from: accounts[0] })
       }).then(function (result) {
         /**********
         TASK 17:  assert to see if the winner address is not the default address
@@ -162,7 +159,7 @@ contract('AuctionContract', (accounts) => {
         /**********
         TASK 18: Call winners function from account 3 to get the winner of item id 2
         ***********/
-        return auctionInstance.winners({ from: accounts[3] }, 2)
+        return auctionInstance.winners(2, { from: accounts[3] })
       }).then(function (result) {
         /**********
         TASK 19:  assert to see if the winner address is not the default address

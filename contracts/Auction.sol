@@ -88,10 +88,10 @@ contract Auction {
 
         // ** Start code here. 2 lines approximately. **/
         require(
-            tokenDetails[msg.sender].remainingTokens > _count,
+            tokenDetails[msg.sender].remainingTokens >= _count,
             "Not enough token"
         );
-        require(_itemId > 2, "Not exist");
+        require(_itemId <= 2, "Not exist");
         //** End code here. **
 
         /*Part 1 Task 5. Decrement the remainingTokens by the number of tokens bid and store the value in balance variable.

@@ -128,7 +128,7 @@ contract('AuctionContract', (accounts) => {
         /**********
         TASK 13: Call revealWinners function from accounts[0]
         ***********/
-        return auctionInstance.revealOwner({ from: accounts[0] })
+        return auctionInstance.revealWinners({ from: accounts[0] })
       }).then(function () {
         /**********
         TASK 14: call winners function from accounts[0] to get the winner of item id 0

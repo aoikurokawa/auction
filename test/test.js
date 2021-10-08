@@ -41,21 +41,21 @@ contract('AuctionContract', (accounts) => {
         throw ("Failed to check remaining tokens less than count");
       }).catch((e) => {
         let a = e.toString();
-        console.log(a);
-        if (e === "Failed to check remaining tokens less than count") {
+        // console.log(a);
+        if (a === "Failed to check remaining tokens less than count") {
           /**********
           TASK 2: This is the error which we had thrown. Should you assert true or false?
           HINT:   Use assert(false) to assert false
                   Use assert(true) to assert true
           ***********/
           /*<CODE HERE>*/
-          assert(true, "Failed to check remaining tokens less than count");
+          assert(false, "Failed to check remaining tokens less than count");
         } else {
           /**********
           TASK 3: assert the opposite here
           ***********/
           /*<CODE HERE>*/
-          assert(false, "Not");
+          assert(true, "Not");
         }
       })
   });
@@ -142,7 +142,7 @@ contract('AuctionContract', (accounts) => {
                   Parameters for notEqual : (result, default address , message);
         ***********/
         /*<CODE HERE>*/
-        assert.notEqual(result, defaultAddress, "assert to see if the winner address is not the default address");
+        assert.notEqual(result, defaultAddress, "[1]: assert to see if the winner address is not the default address");
         /**********
         TASK 16: call winners function from accounts[0] to get the winner of item id 1
         ***********/
@@ -155,7 +155,7 @@ contract('AuctionContract', (accounts) => {
                   Parameters for notEqual : (result, default address , message);
         ***********/
         /*<CODE HERE>*/
-        assert.notEqual(result, defaultAddress, "assert to see if the winner address is not the default address");
+        assert.notEqual(result, defaultAddress, "[2]: assert to see if the winner address is not the default address");
         /**********
         TASK 18: Call winners function from account 3 to get the winner of item id 2
         ***********/
@@ -168,7 +168,7 @@ contract('AuctionContract', (accounts) => {
                   Parameters for notEqual : (result, default address , message);
         ***********/
         /*<CODE HERE>*/
-        assert.notEqual(result, defaultAddress, "assert to see if the winner address is not the default address");
+        assert.notEqual(result, defaultAddress, "[3]: assert to see if the winner address is not the default address");
       })
   });
 });

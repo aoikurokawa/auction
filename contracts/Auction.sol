@@ -52,7 +52,7 @@ contract Auction {
         /*Hint. Here the bidders[bidderCount].addr should be initialized with address of the registrant.*/
 
         // ** Start code here. 1 line approximately. **/
-
+         bidders[bidderCount].addr = msg.sender;
         //** End code here. **
         
         bidders[bidderCount].remainingTokens = 5; // only 5 tokens
@@ -78,7 +78,7 @@ contract Auction {
         */
         
         // ** Start code here. 2 lines approximately. **/
-    
+
 
         //** End code here. **
         

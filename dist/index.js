@@ -151,4 +151,12 @@ let numbers = createNumbers();
 numbers.next();
 numbers.next();
 console.log(numbers.next());
+let numbers2 = {
+    *[Symbol.iterator]() {
+        for (let n = 1; n <= 10; n++) {
+            yield n;
+        }
+    }
+};
+console.log(numbers2);
 //# sourceMappingURL=index.js.map

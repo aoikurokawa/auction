@@ -198,3 +198,19 @@ let numbers = createNumbers()
 numbers.next()
 numbers.next()
 console.log(numbers.next())
+
+let numbers2 = {
+  *[Symbol.iterator]() {
+    for (let n = 1; n <= 10; n++) {
+      yield n
+    }
+  }
+}
+
+console.log(numbers2)
+
+type Filter = {
+  <T>(array: T[], f: (item: T) => boolean): T[]
+}
+
+// let filter: Filter = (a)

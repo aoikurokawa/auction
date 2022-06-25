@@ -123,8 +123,32 @@
 //   return Array.from(arguments).reduce((total, n) => total + n, 0)
 // }
 // sumVariadic()
-function sumVariadicSafe(...numbers) {
-    return numbers.reduce((total, n) => total + n, 0);
+// function sumVariadicSafe(...numbers: number[]): number {
+//   return numbers.reduce((total, n) => total + n, 0)
+// }
+// console.log(sumVariadicSafe(1, 2, 3))
+// function fancyDate() {
+//   return `${this.getDate()}`
+// }
+function* createFibonacciGenerator() {
+    let a = 0;
+    let b = 1;
+    while (true) {
+        yield a;
+        [a, b] = [b, a + b];
+    }
 }
-console.log(sumVariadicSafe(1, 2, 3));
+let fibonacciGenerator = createFibonacciGenerator();
+fibonacciGenerator.next();
+fibonacciGenerator.next();
+function* createNumbers() {
+    let n = 0;
+    while (1) {
+        yield n++;
+    }
+}
+let numbers = createNumbers();
+numbers.next();
+numbers.next();
+console.log(numbers.next());
 //# sourceMappingURL=index.js.map
